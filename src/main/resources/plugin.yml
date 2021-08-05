@@ -1,0 +1,105 @@
+name: JARSMP
+version: @version@
+main: me.devtarix.jarsmp.JARSMP
+api-version: 1.16
+prefix: JARSMP
+authors: [TarixCat]
+description: Plugin for JARSMP
+commands:
+  posbc:
+    description: Broadcasts coordinates
+    aliases: [pos, positionbc, bcpos, cb]
+    usage: /<command>
+    permission: jarsmp.posbc
+  playerinfo:
+    description: Gets info on players
+    aliases: [pinfo, pinf]
+    usage: /<command> <player>
+    permission: jarsmp.playerinfo
+  serverinfo:
+    description: Prints server info
+    usage: /<command>
+    permission: jarsmp.player
+  cbt:
+    description: CBT
+    usage: /<command>
+    permission: jarsmp.cbt
+  otn:
+    description: Overworld to Nether coordinates
+    usage: /<command>
+    permission: jarsmp.player
+  nto:
+    description: Nether to Overworld coordinates
+    usage: /<command>
+    permission: jarsmp.player
+  datadump:
+    description: All potentially useful data about the server
+    usage: /<command>
+    permission: jarsmp.datadump
+  ss:
+    description: Saves you from death
+    aliases: [sos, tph]
+    usage: /<command>
+    permission: jarsmp.helpmeh
+  pigstep:
+    description: Plays pigstep
+    usage: /<command>
+    permission: jarsmp.player
+  camacc:
+    description: Camera Account Command
+    usage: /<command> [on/off]
+    permission: jarsmp.camacc
+  red:
+    description: Red
+    usage: /<command>
+    permission: jarsmp.red
+  pull:
+    description: Pull
+    usage: /<command> x y z speed
+  wbcalc:
+    description: WorldBorderCalc
+    usage: /<command>
+  wbreset:
+    description: resets wb
+    usage: /<command>
+permissions:
+  jarsmp.posbc:
+    description: Allows use of posbc command
+    default: true
+  jarsmp.playerinfo:
+    description: Allows use of playerinfo search
+    default: true
+  jarsmp.player:
+    description: General player commands
+    default: true
+  jarsmp.cbt:
+    description: Allows use of a bad command
+    default: true
+  jarsmp.datadump:
+    description: Datadump
+    default: false
+  jarsmp.helpmeh:
+    description: A permission to allow use of emergency teleporting
+    default: true
+  jarsmp.camacc:
+    description: A permission for camera account use
+    default: op
+  jarsmp.red:
+    description: RED
+    default: op
+  jarsmp.dev:
+    description: Dev
+    default: op
+  jarsmp.*:
+    description: Wildcard for all commands
+    default: op
+    children:
+      jarsmp.posbc: true
+      jarsmp.playerinfo: true
+      jarsmp.player: true
+      jarsmp.cbt: true
+      jarsmp.datadump: true
+      jarsmp.helpmeh: true
+      jarsmp.camacc: true
+      jarsmp.red: true
+      jarsmp.dev: true
