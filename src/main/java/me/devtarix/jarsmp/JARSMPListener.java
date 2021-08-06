@@ -21,10 +21,6 @@ public class JARSMPListener implements Listener {
         Player p = event.getPlayer();
         String playerName = p.getDisplayName();
         p.sendMessage(ChatColor.GOLD + "Welcome " + playerName + " to the server.");
-        Location login = p.getLocation();
-        if (!Bukkit.getWorld("world").getWorldBorder().isInside(login)) {
-            p.teleport(Bukkit.getWorld("world").getSpawnLocation());
-        }
     }
 
     @EventHandler
