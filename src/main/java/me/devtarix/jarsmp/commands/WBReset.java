@@ -1,6 +1,5 @@
 package me.devtarix.jarsmp.commands;
 
-import me.devtarix.jarsmp.util.handles.Logger;
 import me.devtarix.jarsmp.util.handles.Notifs;
 import me.devtarix.jarsmp.util.handles.UserHandles;
 import org.bukkit.Bukkit;

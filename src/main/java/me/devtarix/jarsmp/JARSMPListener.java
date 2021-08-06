@@ -2,8 +2,6 @@ package me.devtarix.jarsmp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -32,7 +30,7 @@ public class JARSMPListener implements Listener {
     public void zombieSpawn(EntitySpawnEvent event) {
         if(event.getEntityType().equals(EntityType.ZOMBIE)){
             Ageable a = (Ageable) event.getEntity();
-            if(a.isAdult() == false) {
+            if(!a.isAdult()) {
                 if (Math.random() * 100 < 50) {
                     a.setAdult();
                 }

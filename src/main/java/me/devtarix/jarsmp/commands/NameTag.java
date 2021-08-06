@@ -20,7 +20,7 @@ public class NameTag extends BukkitCommand {
         this.description = "Gives a name tag to the player";
         this.setUsage("/nametag");
         this.setPermission("jarsmp.player");
-        this.setAliases(new ArrayList<String>());
+        this.setAliases(new ArrayList<>());
     }
 
     @Override

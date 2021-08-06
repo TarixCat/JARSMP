@@ -40,8 +40,7 @@ public class WorldBorder implements CommandExecutor {
         sumX /= nc;
         sumZ /= nc;
 
-        double[] sum = {sumX, sumZ};
-        return sum;
+        return new double[]{sumX, sumZ};
     }
 
     public void trigger() {
@@ -61,12 +60,10 @@ public class WorldBorder implements CommandExecutor {
     }
 
     public int schedule(long cycledelay) {
-        int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::trigger, 0L, cycledelay);
-        return taskID;
+        return Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::trigger, 0L, cycledelay);
     }
     public int schedule(long cycledelay, String t) {
-        int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> triggerT(t), 0L, cycledelay);
-        return taskID;
+        return Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> triggerT(t), 0L, cycledelay);
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
