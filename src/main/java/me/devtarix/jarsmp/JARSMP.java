@@ -62,7 +62,6 @@ public final class JARSMP extends JavaPlugin {
 		this.getCommand("nto").setExecutor(new NetherToOver());
 		this.getCommand("otn").setExecutor(new OverToNether());
 		this.getCommand("datadump").setExecutor(new DataDump());
-        this.getCommand("camacc").setExecutor(new SpecMode());
         if(getConfig().getBoolean("cmd-groups.cheaty")) {
             //Cheaty CMDS
             this.getCommand("ss").setExecutor(new Help());
