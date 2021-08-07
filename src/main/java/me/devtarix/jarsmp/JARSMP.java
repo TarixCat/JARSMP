@@ -29,7 +29,7 @@ public final class JARSMP extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new JARSMPListener(), this);
-        System.out.println("[Server] I am ready and coming online!");
+        System.out.println("I am ready and coming online!");
         System.out.println("<TarixCat> I am the creator of the JARSMP plugin.");
 
         try {
