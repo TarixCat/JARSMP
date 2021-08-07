@@ -3,15 +3,26 @@ package me.devtarix.jarsmp.commands;
 import me.devtarix.jarsmp.util.handles.Notifs;
 import me.devtarix.jarsmp.util.handles.UserHandles;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.Player;
 
-public class WBReset implements CommandExecutor {
-    UserHandles uh = new UserHandles();
+import java.util.ArrayList;
+
+public class WBReset extends BukkitCommand {
     Notifs n = new Notifs();
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    UserHandles uh = new UserHandles();
+
+    public WBReset(String name) {
+        super(name);
+        this.description = "Gives a name tag to the player";
+        this.setUsage("/nametag");
+        this.setPermission("jarsmp.player");
+        this.setAliases(new ArrayList<>());
+    }
+
+    @Override
+    public boolean execute(CommandSender sender, String command, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
@@ -32,7 +43,8 @@ public class WBReset implements CommandExecutor {
         }
         else {
             n.notUser(sender);
-            return false;
+            return true;
         }
     }
+
 }
