@@ -15,8 +15,8 @@ public class WBReset extends BukkitCommand {
 
     public WBReset(String name) {
         super(name);
-        this.description = "Gives a name tag to the player";
-        this.setUsage("/nametag");
+        this.description = "Resets the worldborder using scheduler canceller";
+        this.setUsage("/wbreset <int>");
         this.setPermission("jarsmp.player");
         this.setAliases(new ArrayList<>());
     }
