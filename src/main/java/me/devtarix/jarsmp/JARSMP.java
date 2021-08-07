@@ -38,7 +38,7 @@ public final class JARSMP extends JavaPlugin {
             bukkitCommandMap.setAccessible(true);
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
 
-            commandMap.register("seen", new NameTag("seen"));
+            commandMap.register("nametag", new NameTag("nametag"));
         } catch(NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
