@@ -48,6 +48,7 @@ public final class JARSMP extends JavaPlugin {
             this.getCommand("pull").setExecutor(new Pull());
             this.getCommand("wbcalc").setExecutor(new WorldBorder());
             this.getCommand("wbreset").setExecutor(new WBReset());
+            this.getCommand("datadump").setExecutor(new DataDump());
         }
         PluginManager pm = getServer().getPluginManager();
 
@@ -55,13 +56,15 @@ public final class JARSMP extends JavaPlugin {
 
         //this.getCommand("").setExecutor(gr);
         //General CMDS
-
-        this.getCommand("playerinfo").setExecutor(new PlayerInfo());
-        this.getCommand("posbc").setExecutor(new PositionBroadcast());
-        this.getCommand("serverinfo").setExecutor(new ServerInfo());
-		this.getCommand("nto").setExecutor(new NetherToOver());
-		this.getCommand("otn").setExecutor(new OverToNether());
-		this.getCommand("datadump").setExecutor(new DataDump());
+        if(getConfig().getBoolean("cmd-groups.info")) {
+            this.getCommand("playerinfo").setExecutor(new PlayerInfo());
+            this.getCommand("serverinfo").setExecutor(new ServerInfo());
+        }
+        if(getConfig().getBoolean("cmd-groups.positions")) {
+            this.getCommand("posbc").setExecutor(new PositionBroadcast());
+            this.getCommand("nto").setExecutor(new NetherToOver());
+            this.getCommand("otn").setExecutor(new OverToNether());
+        }
         if(getConfig().getBoolean("cmd-groups.cheaty")) {
             //Cheaty CMDS
             this.getCommand("ss").setExecutor(new Help());
