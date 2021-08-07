@@ -39,6 +39,7 @@ public final class JARSMP extends JavaPlugin {
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
 
             commandMap.register("nametag", new NameTag("nametag"));
+            commandMap.register("wbreset", new WBReset("wbreset"));
         } catch(NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -47,7 +48,6 @@ public final class JARSMP extends JavaPlugin {
             System.out.println("DEV MODE IS ENABLED!");
             this.getCommand("pull").setExecutor(new Pull());
             this.getCommand("wbcalc").setExecutor(new WorldBorder());
-            this.getCommand("wbreset").setExecutor(new WBReset());
             this.getCommand("datadump").setExecutor(new DataDump());
         }
         PluginManager pm = getServer().getPluginManager();
