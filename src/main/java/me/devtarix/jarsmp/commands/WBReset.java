@@ -36,7 +36,7 @@ public class WBReset extends BukkitCommand {
                 uh.userToSpawn(player);
             }
             uh.healUser(player);
-            Bukkit.getScheduler().cancelTask(Integer.parseInt(args[0]));
+            Bukkit.getScheduler().cancelTask(Integer.parseInt(args[1]));
             Bukkit.getServer().getWorld("world").getWorldBorder().setCenter(0,0);
             Bukkit.getServer().getWorld("world").getWorldBorder().setSize(526);
             return true;

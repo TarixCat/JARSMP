@@ -48,15 +48,17 @@ public class WorldBorder implements CommandExecutor {
         double[] calc = pCalc();
         X = calc[0];
         Z = calc[1];
-        Bukkit.getServer().getWorld("world").getWorldBorder().setCenter(X, Z);
+        Bukkit.getServer().getWorlds().get(0).getWorldBorder().setCenter(X, Z);
     }
+
 
     public void triggerT(String target) {
         Player t = Bukkit.getPlayer(target);
+        String world = t.getWorld().getName();
         double X, Z;
         X = t.getLocation().getX();
         Z = t.getLocation().getZ();
-        Bukkit.getServer().getWorld("world").getWorldBorder().setCenter(X, Z);
+        Bukkit.getServer().getWorld(world).getWorldBorder().setCenter(X, Z);
     }
 
     public int schedule(long cycledelay) {
@@ -65,24 +67,26 @@ public class WorldBorder implements CommandExecutor {
     public int schedule(long cycledelay, String t) {
         return Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> triggerT(t), 0L, cycledelay);
     }
-
+    
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             int g = 0;
 
+            String world = player.getWorld().getName();
+
             switch (args.length) {
                 case 0:
                     g = schedule(1);
-                    Bukkit.getServer().getWorld("world").getWorldBorder().setSize(31);
+                    Bukkit.getServer().getWorld(world).getWorldBorder().setSize(31);
                     break;
                 case 1:
-                    g = schedule(1);
-                    Bukkit.getServer().getWorld("world").getWorldBorder().setSize(Double.parseDouble(args[0]));
+                    g = schedule(1, player.getDisplayName());
+                    Bukkit.getServer().getWorld(world).getWorldBorder().setSize(Double.parseDouble(args[0]));
                     break;
                 case 2:
                     g = schedule(1, args[1]);
-                    Bukkit.getServer().getWorld("world").getWorldBorder().setSize(Double.parseDouble(args[0]));
+                    Bukkit.getServer().getWorld(world).getWorldBorder().setSize(Double.parseDouble(args[0]));
                     break;
                 default:
                     player.sendMessage(CI.I + "Retry in the correct format /wbcalc [size] [target]");
