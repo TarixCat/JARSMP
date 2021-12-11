@@ -1,18 +1,24 @@
 package me.devtarix.jarsmp;
 
 import me.devtarix.jarsmp.commands.*;
+import me.devtarix.jarsmp.registries.ShapedRecipeProvider;
 import me.devtarix.jarsmp.util.handles.Logger;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandMap;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.Field;
+import java.util.HashSet;
 import java.util.logging.Level;
 
 public final class JARSMP extends JavaPlugin {
+    public static HashSet<Player> online = new HashSet<>();
+
     Logger logger = new Logger();
 
     public static void chat(Player p, String msg) {
@@ -76,10 +82,17 @@ public final class JARSMP extends JavaPlugin {
             //Util CMDS
             this.getCommand("camacc").setExecutor(new SpecMode());
         }
+        new ShapedRecipeProvider();
     }
 
     @Override
     public void onDisable() {
         logger.log(Level.INFO, "Shutting Down...");
+        online.clear();
+    }
+
+    public static NamespacedKey namespacedKey(String name) {
+        Plugin p = JARSMP.getPlugin(JARSMP.class);
+        return new NamespacedKey(p, name);
     }
 }

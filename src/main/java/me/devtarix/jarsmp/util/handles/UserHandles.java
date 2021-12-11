@@ -49,5 +49,4 @@ public class UserHandles {
             user.setHealth(user.getHealth() + (user.getHealth() / 4));
         }
     }
-
 }

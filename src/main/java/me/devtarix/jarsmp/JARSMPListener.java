@@ -2,15 +2,13 @@ package me.devtarix.jarsmp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Ageable;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class JARSMPListener implements Listener {
 
@@ -19,6 +17,14 @@ public class JARSMPListener implements Listener {
         Player p = event.getPlayer();
         String playerName = p.getDisplayName();
         p.sendMessage(ChatColor.GOLD + "Welcome " + playerName + " to the server.");
+        JARSMP.online.add(p);
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent e) {
+        if (JARSMP.online.contains(e.getPlayer())) {
+            JARSMP.online.remove(e.getPlayer());
+        }
     }
 
     @EventHandler
@@ -27,19 +33,7 @@ public class JARSMPListener implements Listener {
     }
 
     @EventHandler
-    public void zombieSpawn(EntitySpawnEvent event) {
-        if(event.getEntityType().equals(EntityType.ZOMBIE)){
-            Ageable a = (Ageable) event.getEntity();
-            if(!a.isAdult()) {
-                if (Math.random() * 100 < 50) {
-                    a.setAdult();
-                }
-            }
-        }
-    }
-
-    @EventHandler
-    public void onTest(PlayerDeathEvent event) {
+    public void onDeath(PlayerDeathEvent event) {
         event.getEntity().sendMessage("Death at X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ());
         System.out.println(event.getEntity().getDisplayName() + " died at: X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ() + " in dimension " + event.getEntity().getLocation().getWorld().toString());
         switch (event.getEntity().getDisplayName()){
@@ -52,7 +46,7 @@ public class JARSMPListener implements Listener {
             case "Personpacman":
                 Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "*rages*");
                 break;
-            case "penguinboi69":
+            case "pengypoo":
                 Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "another to the death tally!");
                 break;
             case "supersebii":
