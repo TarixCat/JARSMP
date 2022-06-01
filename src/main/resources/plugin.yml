@@ -1,7 +1,7 @@
 name: JARSMP
 version: @version@
 main: me.devtarix.jarsmp.JARSMP
-api-version: 1.16
+api-version: 1.17
 prefix: JARSMP
 authors: [TarixCat]
 description: Plugin for JARSMP
@@ -43,6 +43,10 @@ commands:
     permission: jarsmp.helpmeh
   pigstep:
     description: Plays pigstep
+    usage: /<command>
+    permission: jarsmp.player
+  otherside:
+    description: Plays otherside
     usage: /<command>
     permission: jarsmp.player
   camacc:
