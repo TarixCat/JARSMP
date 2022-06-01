@@ -1,6 +1,7 @@
 package me.devtarix.jarsmp.supers;
 
 import me.devtarix.jarsmp.JARSMP;
+import me.devtarix.jarsmp.registries.ShapedRecipeProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -26,7 +27,7 @@ public abstract class CustomShapedRecipe{
 
     protected ShapedRecipe recipe;
     protected Material material;
-    protected ItemStack result;
+    public ItemStack result;
     protected ItemMeta meta;
 
     protected void setMaterial(Material material) {
@@ -51,6 +52,7 @@ public abstract class CustomShapedRecipe{
     }
 
     public void register(Recipe recipe, NamespacedKey key) {
+        ShapedRecipeProvider.recipeRegistry.put(key.toString(), result);
         Bukkit.getServer().addRecipe(recipe);
         print("Registering crafting recipe: " + key);
     }

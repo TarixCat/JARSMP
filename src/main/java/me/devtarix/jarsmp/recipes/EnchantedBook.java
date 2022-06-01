@@ -8,7 +8,7 @@ import org.bukkit.inventory.ShapedRecipe;
 public class EnchantedBook extends CustomShapedRecipe {
     public EnchantedBook() {
         setName("item");
-        setMaterial(Material.PAPER);
+        setMaterial(Material.BAKED_POTATO);
 
         meta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
         result.setItemMeta(meta);
@@ -17,7 +17,7 @@ public class EnchantedBook extends CustomShapedRecipe {
         rr.shape("xxx","xxx","xxx");
         rr.setIngredient('x', Material.STICK);
 
-        setRecipe(rr);
+        super.recipe = rr;
         register(rr, getKey());
     }
 }
