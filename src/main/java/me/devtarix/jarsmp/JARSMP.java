@@ -5,6 +5,7 @@ import me.devtarix.jarsmp.registries.ShapedRecipeProvider;
 import me.devtarix.jarsmp.util.handles.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
 import org.bukkit.command.CommandMap;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -45,6 +46,7 @@ public final class JARSMP extends JavaPlugin {
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
 
             commandMap.register("seen", new NameTag("seen"));
+            commandMap.register("giveitem", new GiveItem("giveitem"));
         } catch(NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -76,7 +78,8 @@ public final class JARSMP extends JavaPlugin {
         if(getConfig().getBoolean("cmd-groups.fun")) {
             //Fun CMDS
             this.getCommand("red").setExecutor(new Red());
-            this.getCommand("pigstep").setExecutor(new Pigstep());
+            this.getCommand("pigstep").setExecutor(new Sounds(Sound.MUSIC_DISC_PIGSTEP));
+            this.getCommand("otherside").setExecutor(new Sounds(Sound.MUSIC_DISC_OTHERSIDE));
         }
         if(getConfig().getBoolean("cmd-groups.util")) {
             //Util CMDS
