@@ -18,8 +18,6 @@ public class Pull implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (args.length == 4) {
-                FileConfiguration f = JavaPlugin.getPlugin(JARSMP.class).getConfig();
-
                 double blockX = player.getPlayer().getLocation().getBlockX();
                 double blockY = player.getPlayer().getLocation().getBlockY();
                 double blockZ = player.getPlayer().getLocation().getBlockZ();
