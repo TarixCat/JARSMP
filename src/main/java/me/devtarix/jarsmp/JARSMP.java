@@ -45,8 +45,12 @@ public final class JARSMP extends JavaPlugin {
             bukkitCommandMap.setAccessible(true);
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
 
-            commandMap.register("seen", new NameTag("seen"));
-            commandMap.register("giveitem", new GiveItem("giveitem"));
+            if (getConfig().getBoolean("cmd-groups.cheaty")) {
+                commandMap.register("tag", new NameTag("tag"));
+            }
+            if (getConfig().getBoolean("dev-enabled")) {
+                commandMap.register("giveitem", new GiveItem("giveitem"));
+            }
         } catch(NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -66,14 +70,14 @@ public final class JARSMP extends JavaPlugin {
 
         this.getCommand("playerinfo").setExecutor(new PlayerInfo());
         this.getCommand("posbc").setExecutor(new PositionBroadcast());
+        this.getCommand("possend").setExecutor(new PositionSend());
         this.getCommand("serverinfo").setExecutor(new ServerInfo());
 		this.getCommand("nto").setExecutor(new NetherToOver());
 		this.getCommand("otn").setExecutor(new OverToNether());
-		this.getCommand("datadump").setExecutor(new DataDump());
-        this.getCommand("camacc").setExecutor(new SpecMode());
+		this.getCommand("info2").setExecutor(new DataDump());
         if(getConfig().getBoolean("cmd-groups.cheaty")) {
             //Cheaty CMDS
-            this.getCommand("ss").setExecutor(new Help());
+            this.getCommand("camacc").setExecutor(new SpecMode());
         }
         if(getConfig().getBoolean("cmd-groups.fun")) {
             //Fun CMDS
@@ -83,7 +87,7 @@ public final class JARSMP extends JavaPlugin {
         }
         if(getConfig().getBoolean("cmd-groups.util")) {
             //Util CMDS
-            this.getCommand("camacc").setExecutor(new SpecMode());
+            this.getCommand("ss").setExecutor(new Help());
         }
         new ShapedRecipeProvider();
     }
