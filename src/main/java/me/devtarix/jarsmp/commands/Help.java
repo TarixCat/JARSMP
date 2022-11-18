@@ -1,5 +1,6 @@
 package me.devtarix.jarsmp.commands;
 
+import me.devtarix.jarsmp.util.CI;
 import me.devtarix.jarsmp.util.handles.Logger;
 import me.devtarix.jarsmp.util.handles.Notifs;
 import me.devtarix.jarsmp.util.handles.UserHandles;
@@ -29,6 +30,9 @@ public class Help extends Notifs implements CommandExecutor {
                 uh.userToSpawn(player);
             }
             uh.healUser(player);
+
+            player.setExp(0f);
+            player.sendMessage(CI.E + "Your Experience was removed as punishment.");
 
             logger.log(Level.INFO, "SS command used...");
 
