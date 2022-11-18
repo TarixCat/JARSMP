@@ -40,7 +40,7 @@ public class NameTag extends BukkitCommand {
             nametag.setItemMeta(meta);
 
             player.getInventory().addItem(nametag);
-            player.sendMessage(CI.S + "Name given");
+            player.sendMessage(CI.S + "Nametag given");
         }
         else {
             n.notUser(sender);
