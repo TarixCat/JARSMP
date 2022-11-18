@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 
 public class DataDump implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage(CI.S + "Data!");
         sender.sendMessage(CI.G + "Difficulty: " + Bukkit.getWorld("world").getDifficulty());
         sender.sendMessage(CI.G + "Monster Spawn Limit: " + Bukkit.getWorld("world").getMonsterSpawnLimit());
         sender.sendMessage(CI.G + "Ambient Spawn Limit: " + Bukkit.getWorld("world").getAmbientSpawnLimit());
