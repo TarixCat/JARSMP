@@ -15,9 +15,9 @@ public class PositionSend implements CommandExecutor {
             Player player = (Player) sender;
             Player target = Bukkit.getPlayer(args[0]);
             
-            double blockX = player.getPlayer().getLocation().getBlockX();
-            double blockY = player.getPlayer().getLocation().getBlockY();
-            double blockZ = player.getPlayer().getLocation().getBlockZ();
+            int blockX = player.getPlayer().getLocation().getBlockX();
+            int blockY = player.getPlayer().getLocation().getBlockY();
+            int blockZ = player.getPlayer().getLocation().getBlockZ();
 
             player.sendMessage(CI.I + "Sending coordinates to " + target);
             target.sendMessage(CI.S + "Player " + player.getName() + " X= " + blockX + " Y= " + blockY + " Z= " + blockZ + " Dimension: " + player.getWorld().toString());

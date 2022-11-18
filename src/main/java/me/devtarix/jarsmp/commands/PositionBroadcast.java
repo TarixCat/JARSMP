@@ -13,12 +13,12 @@ public class PositionBroadcast implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            double blockX = player.getPlayer().getLocation().getBlockX();
-            double blockY = player.getPlayer().getLocation().getBlockY();
-            double blockZ = player.getPlayer().getLocation().getBlockZ();
+            int blockX = player.getPlayer().getLocation().getBlockX();
+            int blockY = player.getPlayer().getLocation().getBlockY();
+            int blockZ = player.getPlayer().getLocation().getBlockZ();
 
             player.sendMessage(CI.I + "Broadcasting coordinates to server");
-            Bukkit.getServer().broadcastMessage(CI.S + "Player " + player.getName() + " X= " + blockX + " Y= " + blockY + " Z= " + blockZ + " Dimension: " + player.getWorld().toString());
+            Bukkit.getServer().broadcastMessage(CI.S + "Player " + player.getName() + " X= " + blockX + " Y= " + blockY + " Z= " + blockZ + " Dimension: " + player.getWorld().getEnvironment());
         }
         else {
             n.notUser(sender);
