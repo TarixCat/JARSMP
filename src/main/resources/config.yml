@@ -1,7 +1,7 @@
 # Welcome to JARSMP Config File.
 # Config Version: 0.1
 
-dev-enabled: true
+dev-enabled: false
 
 cmd-groups:
   fun: true
