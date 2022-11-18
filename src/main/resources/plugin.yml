@@ -11,6 +11,11 @@ commands:
     aliases: [pos, positionbc, bcpos, cb]
     usage: /<command>
     permission: jarsmp.posbc
+  possend:
+    description: Broadcasts coordinates
+    aliases: [poss, ps]
+    usage: /<command>
+    permission: jarsmp.posbc
   playerinfo:
     description: Gets info on players
     aliases: [pinfo, pinf]
@@ -20,10 +25,6 @@ commands:
     description: Prints server info
     usage: /<command>
     permission: jarsmp.player
-  cbt:
-    description: CBT
-    usage: /<command>
-    permission: jarsmp.cbt
   otn:
     description: Overworld to Nether coordinates
     usage: /<command>
@@ -32,10 +33,10 @@ commands:
     description: Nether to Overworld coordinates
     usage: /<command>
     permission: jarsmp.player
-  datadump:
+  info2:
     description: All potentially useful data about the server
     usage: /<command>
-    permission: jarsmp.datadump
+    permission: jarsmp.player
   ss:
     description: Saves you from death
     aliases: [sos, tph]
@@ -76,12 +77,6 @@ permissions:
   jarsmp.player:
     description: General player commands
     default: true
-  jarsmp.cbt:
-    description: Allows use of a bad command
-    default: true
-  jarsmp.datadump:
-    description: Datadump
-    default: false
   jarsmp.helpmeh:
     description: A permission to allow use of emergency teleporting
     default: true
@@ -101,8 +96,6 @@ permissions:
       jarsmp.posbc: true
       jarsmp.playerinfo: true
       jarsmp.player: true
-      jarsmp.cbt: true
-      jarsmp.datadump: true
       jarsmp.helpmeh: true
       jarsmp.camacc: true
       jarsmp.red: true
