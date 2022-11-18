@@ -35,13 +35,16 @@ public class JARSMPListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         event.getEntity().sendMessage("Death at X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ());
-        System.out.println(event.getEntity().getDisplayName() + " died at: X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ() + " in dimension " + event.getEntity().getLocation().getWorld().toString());
+        System.out.println(event.getEntity().getDisplayName() + " died at: X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ() + " in dimension " + event.getEntity().getLocation().getWorld().getEnvironment());
         switch (event.getEntity().getDisplayName()){
             case "TarixCat":
                 Bukkit.getServer().broadcastMessage(ChatColor.RED + "NOOOOOO!!!");
                 break;
             case "TarixCat33":
                 Bukkit.getServer().broadcastMessage(ChatColor.DARK_RED + "how did the admin die?");
+                break;
+            case "TarixCat22":
+                Bukkit.getServer().broadcastMessage(ChatColor.DARK_RED + "huh? admin ded");
                 break;
             case "Personpacman":
                 Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "*rages*");
