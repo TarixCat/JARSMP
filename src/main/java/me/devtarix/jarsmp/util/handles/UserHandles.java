@@ -38,6 +38,12 @@ public class UserHandles {
         Bukkit.getServer().getWorld("world").strikeLightning(user.getLocation());
     }
 
+    public void strikeUserEffect(Player user) {
+        this.user = user;
+
+        Bukkit.getServer().getWorld("world").strikeLightningEffect(user.getLocation());
+    }
+
     public void healUser(Player user) {
         this.user = user;
 
