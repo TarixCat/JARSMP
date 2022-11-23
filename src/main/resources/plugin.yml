@@ -79,7 +79,7 @@ permissions:
     default: true
   jarsmp.helpmeh:
     description: A permission to allow use of emergency teleporting
-    default: true
+    default: op
   jarsmp.camacc:
     description: A permission for camera account use
     default: op
