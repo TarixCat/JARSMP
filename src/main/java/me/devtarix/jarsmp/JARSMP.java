@@ -39,6 +39,7 @@ public final class JARSMP extends JavaPlugin {
         System.out.println("[Server] I am ready and coming online!");
         System.out.println("<TarixCat> I am the creator of the JARSMP plugin.");
 
+        //Legacy Command Boot
         try {
             final Field bukkitCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
 
@@ -55,6 +56,7 @@ public final class JARSMP extends JavaPlugin {
             e.printStackTrace();
         }
 
+        //Modern Command Boot
         if(getConfig().getBoolean("dev-enabled")) {
             System.out.println("DEV MODE IS ENABLED!");
             this.getCommand("pull").setExecutor(new Pull());
