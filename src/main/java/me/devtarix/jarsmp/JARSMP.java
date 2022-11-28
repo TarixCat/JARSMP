@@ -46,6 +46,8 @@ public final class JARSMP extends JavaPlugin {
             bukkitCommandMap.setAccessible(true);
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
 
+            commandMap.register("world", new World("world"));
+
             if (getConfig().getBoolean("cmd-groups.cheaty")) {
                 commandMap.register("tag", new NameTag("tag"));
             }
