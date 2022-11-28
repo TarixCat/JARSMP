@@ -13,14 +13,14 @@ public class NetherToOver implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-                int blockX = player.getPlayer().getLocation().getBlockX();
-                int blockY = player.getPlayer().getLocation().getBlockY();
-                int blockZ = player.getPlayer().getLocation().getBlockZ();
-                int NBlockX = blockX * 8;
-                int NBlockZ = blockZ * 8;
+            int blockX = player.getPlayer().getLocation().getBlockX();
+            int blockY = player.getPlayer().getLocation().getBlockY();
+            int blockZ = player.getPlayer().getLocation().getBlockZ();
+            int NBlockX = blockX * 8;
+            int NBlockZ = blockZ * 8;
 
-                player.sendMessage(CI.I + "Your current coordinates translated in the Overworld:");
-                player.sendMessage(CI.S + "X= " + NBlockX + " Y= " + blockY + " Z= " + NBlockZ);
+            player.sendMessage(CI.I + "Your current coordinates translated in the Overworld:");
+            player.sendMessage(CI.S + "X= " + NBlockX + " Y= " + blockY + " Z= " + NBlockZ);
         }
         else {
             n.notUser(sender);
