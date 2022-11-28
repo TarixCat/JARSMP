@@ -14,14 +14,14 @@ public class OverToNether implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.getWorld().getName().equals("world")) {
-                int blockX = player.getPlayer().getLocation().getBlockX();
-                int blockY = player.getPlayer().getLocation().getBlockY();
-                int blockZ = player.getPlayer().getLocation().getBlockZ();
-                int NBlockX = blockX / 8;
-                int NBlockZ = blockZ / 8;
+                float blockX = player.getPlayer().getLocation().getBlockX();
+                float blockY = player.getPlayer().getLocation().getBlockY();
+                float blockZ = player.getPlayer().getLocation().getBlockZ();
+                float NBlockX = blockX / 8;
+                float NBlockZ = blockZ / 8;
 
                 player.sendMessage(CI.I + "Your current coordinates translated in the Nether:");
-                player.sendMessage(CI.S + "X= " + NBlockX + " Y= " + blockY + " Z= " + NBlockZ);
+                player.sendMessage(CI.S + "X= " + Math.floor(NBlockX) + " Y= " + Math.floor(blockY) + " Z= " + Math.floor(NBlockZ));
             } else {
                 player.sendMessage(CI.W + "Please run this command in the " + CI.I + "Overworld " + CI.W + "for coordinate translation.");
             }
