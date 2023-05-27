@@ -1,7 +1,7 @@
 name: JARSMP
 version: @version@
 main: me.devtarix.jarsmp.JARSMP
-api-version: 1.17
+api-version: 1.19
 prefix: JARSMP
 authors: [TarixCat]
 description: Plugin for JARSMP

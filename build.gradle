@@ -3,7 +3,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 apply plugin: 'java'
 
 group = 'me.devtarix'
-version = '1.4-test'
+version = '1.5'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT'
 }
 
 processResources {
