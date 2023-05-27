@@ -17,21 +17,30 @@ import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.logging.Level;
 
+/**
+ * Main class
+ */
 public final class JARSMP extends JavaPlugin {
+    /**
+     * Used to store players who are online
+     */
     public static HashSet<Player> online = new HashSet<>();
 
-    Logger logger = new Logger();
-
-    public static void chat(Player p, String msg) {
-        p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-    }
-
+    /**
+     * Broadcasts a message to online players (but not the console)
+     * @param msg Message to players
+     */
     public static void broadcastMessage(String msg) {
         for (Player players : Bukkit.getOnlinePlayers()) {
             players.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
         }
     }
 
+    /**
+     * Run when plugin enabled
+     */
+
+    //TODO: This code has to bee cleaned up a lot. In particular clean up the sections of commandMap registered commands and the getCommand registered commands into two separate chunks of code
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -67,11 +76,6 @@ public final class JARSMP extends JavaPlugin {
         }
         PluginManager pm = getServer().getPluginManager();
 
-
-
-        //this.getCommand("").setExecutor(gr);
-        //General CMDS
-
         this.getCommand("playerinfo").setExecutor(new PlayerInfo());
         this.getCommand("posbc").setExecutor(new PositionBroadcast());
         this.getCommand("possend").setExecutor(new PositionSend());
@@ -96,9 +100,12 @@ public final class JARSMP extends JavaPlugin {
         new ShapedRecipeProvider();
     }
 
+    /**
+     * Runs when plugin disabled
+     */
     @Override
     public void onDisable() {
-        logger.log(Level.INFO, "Shutting Down...");
+        Logger.log(Level.INFO, "Shutting Down...");
         online.clear();
     }
 
