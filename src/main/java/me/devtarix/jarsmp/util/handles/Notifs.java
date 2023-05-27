@@ -4,6 +4,12 @@ import me.devtarix.jarsmp.util.CI;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Used to send players standard notifications
+ * Interpreting this class is simple
+ */
+
+//TODO: Put the CI interface in here
 public class Notifs {
     Player user;
     CommandSender sender;
