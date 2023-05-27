@@ -10,8 +10,15 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+/**
+ * Listeners for JARSMP
+ */
 public class JARSMPListener implements Listener {
 
+    /**
+     * Event that runs on player join, adds them to the online HashMap and makes a greeting
+     * @param event PlayerJoinEvent
+     */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
@@ -20,18 +27,28 @@ public class JARSMPListener implements Listener {
         JARSMP.online.add(p);
     }
 
+    /**
+     * Event that runs on player quit, removes them from the online HashMap
+     * @param e PlayerQuitEvent
+     */
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) {
-        if (JARSMP.online.contains(e.getPlayer())) {
-            JARSMP.online.remove(e.getPlayer());
-        }
+        JARSMP.online.remove(e.getPlayer());
     }
 
+    /**
+     * Event that runs on a player kick, broadcasts the kick reason to the server
+     * @param event PlayerKickEvent
+     */
     @EventHandler
     public void onKick(PlayerKickEvent event) {
         JARSMP.broadcastMessage("User " + event.getPlayer().getDisplayName() + " has just been kicked for: " + event.getReason());
     }
 
+    /**
+     * Event that runs on player death, prints coords to console and to the player. Gives a customized death message to some
+     * @param event PlayerDeathEvent
+     */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         event.getEntity().sendMessage("Death at X= " + event.getEntity().getLocation().getBlockX() + " Y= " + event.getEntity().getLocation().getBlockY() + " Z= " + event.getEntity().getLocation().getBlockZ());
